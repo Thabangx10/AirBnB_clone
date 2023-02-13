@@ -149,6 +149,16 @@ class HBNBCommand(cmd.Cmd):
                    objl.append(obj.__str__())
            print(objl)
 
+    def do_count(self, arg):
+        """Usage: count <class> or <class>.count()
+        Return - Retrieve the number of instances of a given class."""
+        argl = parse(arg)
+        count = 0
+        for obj in storage.all().values():
+            if argl[0] == obj.__class__.__name__:
+                count += 1
+        print(count)
+
     def do_update(self, arg):
         """Usage: update <class> <id> <attribute_name> <attribute_value> or
                   <class>.update(<id>, <attribute_name>, <attribute_value>) or
