@@ -4,23 +4,421 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="images/icon.png">
-    <link rel="stylesheet" href="styles/102-common.css">
-    <link rel="stylesheet" href="styles/102-header.css">
-    <link rel="stylesheet" href="styles/102-footer.css">
-    <link rel="stylesheet" href="styles/102-filters.css">
-    <link rel="stylesheet" href="styles/102-places.css">
+    <!-- <link rel="stylesheet" href="styles/103-common.css">
+    <link rel="stylesheet" href="styles/103-header.css">
+    <link rel="stylesheet" href="styles/103-footer.css">
+    <link rel="stylesheet" href="styles/103-filters.css">
+    <link rel="stylesheet" href="styles/103-places.css"> -->
     <title>AirBnB clone</title>
   </head>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-decoration: none;
+      border: none;
+      outline: none;
+    }
+    /****************************************************************************/
+    /* common styles */
+    /****************************************************************************/
+    html {
+      box-sizing: border-box;
+    }
+    
+    /****************************************************************************/
+    /* mobile first resposive */
+    /****************************************************************************/
+    
+    /* Extra small devices (phones, 600px and down) */
+    /* @media only screen and (max-width: 600px) */
+    body {
+      font-size: 14px;
+      font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+      width: 100%;
+      color: #484848;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    span {
+      color: #000000;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      margin: 2rem auto;
+    }
+    
+    /*****************************/
+    /* index
+    /*****************************/
+    .container {
+      z-index: 0;
+    }
+    .div_price_by_night {
+      z-index: 10;
+    }
+    * {
+      z-index: inherit;
+    }
+    
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+    
+    }
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) {
+    
+    }
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) {
+    
+      body {
+        max-width: 1920px;
+        margin: 0 auto;
+      }
+    }
+
+    /* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .filters {
+    height: 70px;
+    width: 100%;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  button {
+    font-size: 18px;
+    background-color: #FF5A5F;
+    color: #FFF;
+    height: 48px;
+    width: 20%;
+    max-width: 220px;
+    border: none;
+    border-radius: 4px;
+    margin: auto 30px auto auto;
+    align-self: center;
+  }
+
+  button:hover {
+    opacity: .9;
+    cursor: pointer;
+  }
+
+  .locations,
+  .amenities {
+    height: 100%;
+    width: 25%;
+    /* display: inline-block;
+    vertical-align: left; */
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .locations {
+    border-right: 1px solid #DDDDDD;
+  }
+
+  .locations h3,
+  .amenities h3{
+    font-weight: 600;
+    margin: 1em 0 auto 30px;
+  }
+
+  .locations h4,
+  .amenities h4 {
+    font-weight: 400;
+    font-size: 14px;
+    margin: auto 0 auto 30px;
+  }
+/* Focus for ARIA accesibility */
+.locations:focus,
+.amenities:focus {
+  background-color: antiquewhite;
+}
+
+article:focus {
+  background-color: antiquewhite;
+}
+
+  /* ================================================================= */
+  /* dropdown menu */
+  /* ================================================================= */
+
+  .popover {
+    border-radius: 4px;
+    border: 1px solid #DDDDDD;
+    padding: 20px 20px 20px 20px;
+    display: none;
+    background-color: #FAFAFA;
+    margin: 17px 0 0 0;
+  }
+
+  .popover ul {
+    margin-left: 10px;
+  }
+
+  ul > ul {
+    padding: 0;
+  }
+  .popover li{
+    list-style-type: none;
+  }
+
+  .popover h2 {
+    font-size: 16px;
+    margin: 5px auto 5px auto;
+  }
+
+  /* drop down on hover */
+
+  .locations:hover,
+  .amenities:hover {
+    cursor: pointer;
+  }
+
+  .locations:hover .popover {
+    display: block;
+    cursor: pointer;
+  }
+
+  .amenities:hover .popover {
+    display: block;
+    cursor: pointer;
+  }
+
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+.places {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: -1;
+}
+
+.places article {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 400px;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 4px;
+  border: 1px solid #FF5A5F;
+  box-sizing: border-box;
+}
+
+.places h1 {
+  width: 100%;
+  font-size: 30px;
+  padding-left: 20px;
+  margin: 10px auto auto;
+}
+
+.places h2 {
+  font-size: 30px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  flex-grow: 1;
+}
+/* ************************************************** */
+/* article information */
+/* ************************************************** */
+
+/* circle with price */
+.article_places_header {
+  width: 100%;
+  display: flex;
+}
+
+.price_by_night {
+    min-width: 60px;
+    height: 60px;
+    color: #FF5A5F;
+    border: 4px solid #FF5A5F;
+    border-radius: 50%;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin-bottom: 5px;
+    transition: 0.2s ease-in-out;
+}
+/* ******************************************/
+/* ARIA
+/* ******************************************/
+.price_by_night:hover,
+.price_by_night:focus {
+  background-color: antiquewhite;
+  transform: scale(1.1);
+  font-weight: bold;
+  border: 2px dotted;
+  transition: 0.2s ease-in-out;
+}
+
+article:hover,
+article:focus {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: 0.2s ease-in-out;
+}
+/* ******************************************/
+/* information box with icons */
+/* ******************************************/
+
+.information {
+  width: 100%;
+  height: 80px;
+  border-top: 1px solid #DDDDDD;
+  border-bottom: 1px solid #DDDDDD;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.user {
+  padding: 20px 0 5px;
+}
+.user b, p {
+  margin: 0;
+  padding: 0;
+}
+
+/***********/
+/* icons   */
+
+.max_guest {
+  background-image: url(../images/icon_group.png);
+}
+
+.number_rooms {
+  background-image: url(../images/icon_bed.png);
+}
+
+.number_bathrooms {
+  background-image: url(../images/icon_bath.png)
+}
+
+.max_guest,
+.number_rooms,
+.number_bathrooms {
+  width: 33%;
+  background-repeat: no-repeat;
+  display:flex;
+  flex-direction: column-reverse;
+  background-position-x: center;
+  text-align:center;
+}
+
+/*******************************************/
+/* more information */
+/*******************************************/
+.places .amenities,
+.places .reviews {
+  margin-top: 40px;
+  width: 100%;
+  height: inherit;
+}
+
+.places .amenities ul,
+.places .reviews ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.places .amenities h2,
+.places .reviews h2 {
+  font-size: 16px;
+  text-align: left;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.places .reviews h3 {
+  font-size: 14px;
+}
+
+.places .reviews p {
+  font-size: 12px;
+}
+/*******************************************/
+/* amenities icons */
+/*******************************************/
+.places .amenities ul li{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+  margin-bottom: 10px;
+  align-items: end;
+  }
+
+.places_amenities_pet_friendly {
+  background-image: url(../images/icon_pets.png);
+}
+.places_amenities_tv {
+  background-image: url(../images/icon_tv.png);
+}
+.places_amenities_wifi {
+  background-image: url(../images/icon_wifi.png);
+}
+
+.places_amenities_pet_friendly,
+.places_amenities_tv,
+.places_amenities_wifi {
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+footer {
+  clear: left;
+  height: 60px;
+  width: 100%;
+  border-top: 1px solid #CCCCCC;
+  display: flex;
+  background-color: #FFF;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  color: #484848;
+  text-align: center;
+}
+  </style>
   <body>
+    <!-- Use boostrap to creeate a similar toogle navBar like the AirBnb website -->
     <header>
-      <div class="mobile_nav">
-        <label for="main_check" class="main_nav_burguer">|||</label>
-        <input type="checkbox" id="main_check" name="main_check" class="main_nav_check">
+      <div class="mobile_nav" role="navigation" aria-label="Navigate through site content">
+        <label for="main_check" class="main_nav_burguer" aria-label="Responsive popup menu">|||</label>
+        <input type="checkbox" id="main_check" name="main_check" class="main_nav_check" aria-hidden="true" tabindex=0>
           <nav>
               <ul class="nav_bar_level1">
                 <li>
                     <label for="second_check"><span>States</span></label>
-                    <input type="checkbox" name="second_check" id="second_check">
+                    <input type="checkbox" name="second_check" id="second_check" aria-hidden="true">
                   <ul>
                     <li><span>Arizona</span></li>
                     <li><span>California</span></li>
@@ -28,7 +426,7 @@
                   </li>
                 <li>
                   <label for="third_check"><span>Amenities</span></label>
-                  <input type="checkbox" name="second_check" id="third_check">
+                  <input type="checkbox" name="second_check" id="third_check" aria-hidden="true">
                   <ul>
                     <li><span>Internet</span></li>
                     <li><span>Tv</span></li>
@@ -42,7 +440,7 @@
       </div>
     </header>
     <div class="container">
-      <section class="filters">
+      <section class="filters" role="navigation">
         <div class="locations">
           <h3>States</h3>
           <h4>California, Arizona...</h4>
@@ -87,7 +485,7 @@
             <div class="number_bathrooms">1 Bathroom</div>
           </div><!-- end information -->
           <div class="user">
-            <p><b>Owner:</b> Jason Tatum</p>
+            <p><b>Owner:</b> Park Ji Seung</p>
           </div><!-- end user -->
           <div class="description">
             <p>This is a lovely 1 bathroom apartament that can accommodate 2 people. It locates at the center of Shanghai and next to subway line 1, 1 stop to People Square, 2 stops to Bund, 3 stops to Jungan Temle.</p>
@@ -113,11 +511,11 @@
             <h2>2 Reviews</h2>
             <ul>
               <li>
-                <h3>From Didier Drogba the 27th August 2022</h3>
+                <h3>From Mick Jeggar the 27th August 2022</h3>
                 <p>Runshi is an epic host. Nothing more i can say. 5 star!</p>
               </li>
               <li>
-                <h3>From Connor Mcgregor 4th August 2022</h3>
+                <h3>From Sir Alex Ferguson 4th January 2021</h3>
                 <p>Higly recommended!</p>
               </li>
             </ul>
@@ -133,10 +531,10 @@
             <div class="number_bathrooms">1 Bathroom</div>
           </div><!-- end information -->
           <div class="user">
-            <p><b>Owner:</b> Kane</p>
+            <p><b>Owner:</b> Baba Voss</p>
           </div><!-- end user -->
           <div class="description">
-            <p>Our place is a private, afffordable satan-alone guest house centrally located just minutes to French Quarters, downtown th Fair Grounds (Jazz Fest) and City Park. The guest house is a quaint, 400 suare ft. with a full bath, mini kitchen, & livin room. The extra high cellings make the home feel more spacious. The sofa converts to bed also. We have a hand made counter area that adds character to the room and a great porch/deck to relax on and have a glass of Merlot.</p>
+            <p>Our place is a privete, afffordable satan-alone guest house centrally located just minutes to French Quarters, downtown th Fair Grounds (Jazz Fest) and City Park. The guest house is a quaint, 400 suare ft. with a full bath, mini kitchen, & livin room. The extra high cellings make the home feel more spacious. The sofa converts to bed also. We have a hand made counter area that adds character to the room and a great porch/deck to relax on and have a glass of Merlot.</p>
           </div><!-- end description -->
           <div class="amenities">
             <h2>Amenities</h2>
@@ -151,11 +549,11 @@
             <h2>1 Review</h2>
             <ul>
               <li>
-                <h3>From Echo and Bellemy the 15th August 2022</h3>
+                <h3>From Murphy and Emori the 15th August 2022</h3>
                 <p>Runshi is an epic host. Nothing more i can say. 5 star!</p>
               </li>
               <li>
-                <h3>From The Primes 4th August 2022</h3>
+                <h3>From Jasper 4th August 2022</h3>
                 <p>Higly recommended!</p>
               </li>
             </ul>
@@ -171,7 +569,7 @@
             <div class="number_bathrooms">2 Bathroom</div>
           </div><!-- end information -->
           <div class="user">
-            <p><b>Owner:</b> Octavia</p>
+            <p><b>Owner:</b> Andrew Tate</p>
           </div><!-- end user -->
           <div class="description">
             <p>First loft built by Holbies. It contains a decked terrace, jacuzzi, firepit, rabbits garden, two rooms, two balconies, entrance gate, private garden, private parking, BBQ area, AC in each bedroom, technological equipment, luxury beds, and mountain views. Ideal for architecture lovers, romantic dates, or having a good time. It is a unique space of his kind. Only pets that do not harm rabbits are allowed.</p>
@@ -197,7 +595,7 @@
             <h2>1 Review</h2>
             <ul>
               <li>
-                <h3>From Chris Wood the 13th August 2022</h3>
+                <h3>From The Primes the 13th August 2022</h3>
                 <p>I love this place. Amazing!</p>
               </li>
             </ul>
@@ -215,7 +613,7 @@
             <div class="number_bathrooms">1 Bathroom</div>
           </div><!-- end information -->
           <div class="user">
-            <p><b>Owner:</b>James Brown Jnr</p>
+            <p><b>Owner:</b>Bloodreina</p>
           </div><!-- end user -->
           <div class="description">
             <p>This is a lovely 1 bathroom apartament that can accommodate 2 people. It locates at the center of Shanghai and next to subway line 1, 1 stop to People Square, 2 stops to Bund, 3 stops to Jungan Temle.</p>
@@ -241,11 +639,11 @@
             <h2>2 Reviews</h2>
             <ul>
               <li>
-                <h3>From Rivaldo the 27th August 2022</h3>
+                <h3>From Echo and Bellemy the 27th August 2022</h3>
                 <p>Runshi is an epic host. Nothing more i can say. 5 star!</p>
               </li>
               <li>
-                <h3>From Ronaldo 4th August 2022</h3>
+                <h3>From Clark 4th August 2022</h3>
                 <p>Higly recommended!</p>
               </li>
             </ul>
@@ -289,11 +687,11 @@
             <h2>2 Reviews</h2>
             <ul>
               <li>
-                <h3>From Xabi Alonso the 27th August 2022</h3>
+                <h3>From Ronaldo the 27th August 2022</h3>
                 <p>Runshi is an epic host. Nothing more i can say. 5 star!</p>
               </li>
               <li>
-                <h3>From Lionel Messi 4th January 2021</h3>
+                <h3>From Lionel Messi 4th August 2022</h3>
                 <p>Higly recommended!</p>
               </li>
             </ul>
@@ -337,7 +735,7 @@
             <h2>2 Reviews</h2>
             <ul>
               <li>
-                <h3>From Micheal Corleone the 27th August 2022</h3>
+                <h3>From Rivano Langevald the 27th August 2022</h3>
                 <p>Runshi is an epic host. Nothing more i can say. 5 star!</p>
               </li>
               <li>
@@ -350,7 +748,7 @@
 
         </section> <!-- end section -->
     </div>
-    <footer>
+    <footer aria-label="Footer brand information">
       <p>Best School</p>
     </footer>
   </body>
